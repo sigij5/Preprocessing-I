@@ -54,11 +54,6 @@ table {
     box-sizing: border-box;
 }
 
-html, body {
-	min-height: 100%;
-	min-height:100vh;
-}
-
 .headingFonts(){
 	font-family:  'Belgrano', serif;
 	font-size: 1rem;
@@ -70,6 +65,12 @@ html, body {
 .bodyFonts(){
 	font-family: 'Open Sans', sans-serif;
 	line-height: 1.5;
+}
+
+.sectionSpread(){
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
 }
 
 @sidebarbackgrouncolor: #00242b;
@@ -113,7 +114,7 @@ a{
 	background-color: @sidebarbackgrouncolor;
 	color: @sidebarheadingcolor;
 	display:flex;
-	width: 33vw;
+	width: 33%;
 	min-height:100%;
 	flex-flow:column nowrap;
 	padding: 0% 2%;
@@ -121,7 +122,7 @@ a{
 	.pic{
 		margin: 3% 23%;
 		display:flex;
-		max-height: 25vh;
+		max-height: 25%;
 		.center();
 		border-radius: 60%;
 		overflow: hidden;
@@ -133,20 +134,25 @@ a{
 		}
 	}
 	.sidebar-text{
-		justify-content: space-between;
-		display: flex;
-		flex-flow: column nowrap;
-		min-height:100vh;
-		max-height:100vh;
+		.sectionSpread();
+		min-height:75%;
+		max-height:100%;
 		padding: 4% 0%;
 		color: @bodybackgroundcolor;
 		h2{
 			color: @sidebarheadingcolor;
 			margin: 4% 0%;
 		}
+		ul{
+			list-style-position: outside;
+		}
 		
 		.about{
 			margin-top: 5%;
+		}
+
+		@media(max-width:500px){
+			display: none;
 		}
 	}
 
@@ -154,11 +160,16 @@ a{
 /* title box styling */
 
 .header{
-	height: 25vh;
+	min-height: 25vh;
 	flex-direction: column;
 	display:flex;
 	background-color: @titlebackgroundcolor;
 	padding-left: 4%;
+
+	@media(max-width:500px){
+		align-items:center;
+	}
+
 	h1, h2{
 		color: @bodybackgroundcolor;
 	}
@@ -174,6 +185,12 @@ a{
 		justify-content: flex-end;
 		align-items: flex-start;
 		height:25%;
+
+		@media(max-width:500px){
+			width:100%;
+			justify-content: center;
+			margin-bottom: 5%;
+		}
 		
 		a{
 			margin:2%;
@@ -181,26 +198,31 @@ a{
 			&:hover{
 				color:@sidebarbackgrouncolor;
 			}
+
+			@media(max-width:500px){
+				width:25%;
+			}
 		}
 	}
-
 }
 
 
 /* body styling */
 
 .body{
-	width: 66vw;
+	width: 66.9%;
 	height:100%;
 	float:right;
 	background-color: @bodybackgroundcolor;
 
 	.main-content{
 		padding: 4% 4% 4% 4%;
-		min-height:100vh;
-		display: flex;
-		flex-direction: column;
-		justify-content: space-between;
+		min-height:100%;
+		.sectionSpread();
+
+		@media(max-width:500px){
+			text-align: center;
+		}
 
 		h2{
 			color: @titlebackgroundcolor;
@@ -218,4 +240,26 @@ a{
 			margin-bottom: 4%;
 		}
 	}
+}
+
+
+@media(max-width:500px){
+	body{
+		display: flex;
+		flex-direction: column;
+
+		.body, .sidebar{
+			height:auto;
+			width: 100%;
+			}
+		.sidebar{
+			max-height: 50%;
+			flex:1;
+		}
+		.body{
+			flex:2;
+			max-height:100%;
+		}
+	}
+
 }

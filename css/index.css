@@ -131,11 +131,6 @@ table {
 * {
   box-sizing: border-box;
 }
-html,
-body {
-  min-height: 100%;
-  min-height: 100vh;
-}
 div {
   max-width: 100%;
 }
@@ -169,14 +164,14 @@ a {
   background-color: #00242b;
   color: #78a1bb;
   display: flex;
-  width: 33vw;
+  width: 33%;
   min-height: 100%;
   flex-flow: column nowrap;
   padding: 0% 2%;
 }
 .sidebar .pic {
   margin: 3% 23%;
-  max-height: 25vh;
+  max-height: 25%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -189,11 +184,11 @@ a {
   max-height: 100%;
 }
 .sidebar .sidebar-text {
-  justify-content: space-between;
   display: flex;
-  flex-flow: column nowrap;
-  min-height: 100vh;
-  max-height: 100vh;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 75%;
+  max-height: 100%;
   padding: 4% 0%;
   color: #eff9f2;
 }
@@ -201,16 +196,29 @@ a {
   color: #78a1bb;
   margin: 4% 0%;
 }
+.sidebar .sidebar-text ul {
+  list-style-position: outside;
+}
 .sidebar .sidebar-text .about {
   margin-top: 5%;
 }
+@media (max-width: 500px) {
+  .sidebar .sidebar-text {
+    display: none;
+  }
+}
 /* title box styling */
 .header {
-  height: 25vh;
+  min-height: 25vh;
   flex-direction: column;
   display: flex;
   background-color: #03674f;
   padding-left: 4%;
+}
+@media (max-width: 500px) {
+  .header {
+    align-items: center;
+  }
 }
 .header h1,
 .header h2 {
@@ -229,6 +237,13 @@ a {
   align-items: flex-start;
   height: 25%;
 }
+@media (max-width: 500px) {
+  .header nav {
+    width: 100%;
+    justify-content: center;
+    margin-bottom: 5%;
+  }
+}
 .header nav a {
   margin: 2%;
   color: #eff9f2;
@@ -236,19 +251,29 @@ a {
 .header nav a:hover {
   color: #00242b;
 }
+@media (max-width: 500px) {
+  .header nav a {
+    width: 25%;
+  }
+}
 /* body styling */
 .body {
-  width: 66vw;
+  width: 66.9%;
   height: 100%;
   float: right;
   background-color: #eff9f2;
 }
 .body .main-content {
   padding: 4% 4% 4% 4%;
-  min-height: 100vh;
+  min-height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+@media (max-width: 500px) {
+  .body .main-content {
+    text-align: center;
+  }
 }
 .body .main-content h2 {
   color: #03674f;
@@ -263,4 +288,23 @@ a {
 }
 .body .main-content ul {
   margin-bottom: 4%;
+}
+@media (max-width: 500px) {
+  body {
+    display: flex;
+    flex-direction: column;
+  }
+  body .body,
+  body .sidebar {
+    height: auto;
+    width: 100%;
+  }
+  body .sidebar {
+    max-height: 50%;
+    flex: 1;
+  }
+  body .body {
+    flex: 2;
+    max-height: 100%;
+  }
 }
