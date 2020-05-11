@@ -110,7 +110,7 @@ body {
 }
 ol,
 ul {
-  list-style: none;
+  list-style: disc inside;
 }
 blockquote,
 q {
@@ -133,27 +133,36 @@ table {
 }
 html,
 body {
-  height: 100%;
+  min-height: 100%;
+  min-height: 100vh;
 }
 div {
   max-width: 100%;
-  border: 1px solid grey;
-}
-section {
-  border: 1px solid red;
 }
 h1,
-h2,
-h3 {
+h2 {
   font-family: 'Belgrano', serif;
   font-size: 1rem;
   line-height: 2;
   text-transform: uppercase;
+  font-weight: bolder;
 }
 h1 h1,
-h2 h1,
-h3 h1 {
+h2 h1 {
   line-height: 1;
+}
+h3 {
+  text-transform: uppercase;
+  font-weight: bold;
+}
+address,
+ul,
+p {
+  font-family: 'Open Sans', sans-serif;
+  line-height: 1.5;
+}
+a {
+  text-decoration: none;
 }
 /* Sidebar styling */
 .sidebar {
@@ -161,12 +170,13 @@ h3 h1 {
   color: #78a1bb;
   display: flex;
   width: 33vw;
+  min-height: 100%;
   flex-flow: column nowrap;
-  padding: 1% 2%;
+  padding: 0% 2%;
 }
 .sidebar .pic {
-  margin: 1% 23%;
-  height: 25%;
+  margin: 3% 23%;
+  max-height: 25vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -178,13 +188,29 @@ h3 h1 {
   max-width: 100%;
   max-height: 100%;
 }
+.sidebar .sidebar-text {
+  justify-content: space-between;
+  display: flex;
+  flex-flow: column nowrap;
+  min-height: 100vh;
+  max-height: 100vh;
+  padding: 4% 0%;
+  color: #eff9f2;
+}
+.sidebar .sidebar-text h2 {
+  color: #78a1bb;
+  margin: 4% 0%;
+}
+.sidebar .sidebar-text .about {
+  margin-top: 5%;
+}
 /* title box styling */
 .header {
   height: 25vh;
   flex-direction: column;
   display: flex;
-  justify-content: center;
   background-color: #03674f;
+  padding-left: 4%;
 }
 .header h1,
 .header h2 {
@@ -197,9 +223,44 @@ h3 h1 {
 .header h2 {
   font-size: 2rem;
 }
+.header nav {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  height: 25%;
+}
+.header nav a {
+  margin: 2%;
+  color: #eff9f2;
+}
+.header nav a:hover {
+  color: #00242b;
+}
 /* body styling */
 .body {
   width: 66vw;
+  height: 100%;
   float: right;
   background-color: #eff9f2;
+}
+.body .main-content {
+  padding: 4% 4% 4% 4%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.body .main-content h2 {
+  color: #03674f;
+  margin: 2% 0%;
+}
+.body .main-content h3 {
+  margin-bottom: 2%;
+}
+.body .main-content address {
+  font-style: italic;
+  margin-bottom: 2%;
+}
+.body .main-content ul {
+  margin-bottom: 4%;
 }
