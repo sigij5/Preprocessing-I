@@ -155,9 +155,17 @@ ul,
 p {
   font-family: 'Open Sans', sans-serif;
   line-height: 1.5;
+  font-size: 1rem;
 }
 a {
   text-decoration: none;
+}
+/*header styles*/
+.social {
+  width: 100%;
+}
+.social a i {
+  font-size: 2rem;
 }
 /* Sidebar styling */
 .sidebar {
